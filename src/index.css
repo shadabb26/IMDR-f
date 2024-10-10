@@ -1,9 +1,294 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-.red{
-    color: red;
-    font-size: x-small;
-    padding-left:12px;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom styles for UI components */
+
+/* Button styles */
+.button {
+  @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background;
+}
+
+.button-default {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90;
+}
+
+.button-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+}
+
+.button-outline {
+  @apply border border-input hover:bg-accent hover:text-accent-foreground;
+}
+
+.button-sm {
+  @apply h-9 px-3 rounded-md;
+}
+
+.button-lg {
+  @apply h-11 px-8 rounded-md;
+}
+
+/* Card styles */
+.card {
+  @apply rounded-lg border bg-card text-card-foreground shadow-sm;
+}
+
+.card-header {
+  @apply flex flex-col space-y-1.5 p-6;
+}
+
+.card-title {
+  @apply text-2xl font-semibold leading-none tracking-tight;
+}
+
+.card-description {
+  @apply text-sm text-muted-foreground;
+}
+
+.card-content {
+  @apply p-6 pt-0;
+}
+
+.card-footer {
+  @apply flex items-center p-6 pt-0;
+}
+
+/* Input styles */
+.input {
+  @apply flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+/* Label styles */
+.label {
+  @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+}
+
+/* Tabs styles */
+.tabs-list {
+  @apply inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground;
+}
+
+.tabs-trigger {
+  @apply inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm;
+}
+
+.tabs-content {
+  @apply mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+/* Textarea styles */
+.textarea {
+  @apply flex min-h-[80px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+/* Additional utility classes */
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+}
+
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+/* Responsive utilities */
+@screen sm {
+  .card-header {
+    @apply p-8;
+  }
+
+  .card-content {
+    @apply p-8 pt-0;
+  }
+
+  .card-footer {
+    @apply p-8 pt-0;
+  }
+}
+
+.progress-root {
+  @apply relative h-4 w-full overflow-hidden rounded-full bg-secondary;
+}
+
+.progress-indicator {
+  @apply h-full w-full flex-1 bg-primary transition-all;
+}
+
+/* src/components/ui/Badge.css */
+.badge {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+}
+
+@keyframes enter {
+  from {
+    opacity: var(--tw-enter-opacity, 1);
+    transform: translate3d(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y, 0), 0) scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), var(--tw-enter-scale, 1)) rotate(var(--tw-enter-rotate, 0));
+  }
+}
+
+@keyframes exit {
+  to {
+    opacity: var(--tw-exit-opacity, 1);
+    transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0));
+  }
+}
+
+.animate-in {
+  animation-name: enter;
+  animation-duration: 150ms;
+  --tw-enter-opacity: initial;
+  --tw-enter-scale: initial;
+  --tw-enter-rotate: initial;
+  --tw-enter-translate-x: initial;
+  --tw-enter-translate-y: initial;
+}
+
+.fade-in-80 {
+  --tw-enter-opacity: 0.8;
+}
+
+.translate-y-1 {
+  --tw-enter-translate-y: 0.25rem;
+}
+
+.select-none {
+  user-select: none;
+}
+
+.data-\[disabled\]\:pointer-events-none[data-disabled] {
+  pointer-events: none;
+}
+
+.data-\[disabled\]\:opacity-50[data-disabled] {
+  opacity: 0.5;
+}
+
+.data-\[state\=active\]\:bg-accent[data-state=active] {
+  background-color: hsl(var(--accent));
+}
+
+.data-\[state\=active\]\:text-accent-foreground[data-state=active] {
+  color: hsl(var(--accent-foreground));
+}
+
+.data-\[highlighted\]\:bg-accent[data-highlighted] {
+  background-color: hsl(var(--accent));
+}
+
+.data-\[highlighted\]\:text-accent-foreground[data-highlighted] {
+  color: hsl(var(--accent-foreground));
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); }
+  to { transform: scale(1); }
+}
+
+@keyframes zoomOut {
+  from { transform: scale(1); }
+  to { transform: scale(0.95); }
+}
+
+@keyframes slideInFromTop {
+  from { transform: translateY(-48%) translateX(-50%); }
+  to { transform: translateY(-50%) translateX(-50%); }
+}
+
+@keyframes slideOutToTop {
+  from { transform: translateY(-50%) translateX(-50%); }
+  to { transform: translateY(-48%) translateX(-50%); }
+}
+
+.data-\[state\=open\]\:animate-in {
+  animation: fadeIn 150ms ease-out, zoomIn 150ms ease-out, slideInFromTop 150ms ease-out;
+}
+
+.data-\[state\=closed\]\:animate-out {
+  animation: fadeOut 150ms ease-in, zoomOut 150ms ease-in, slideOutToTop 150ms ease-in;
+}
+
+.data-\[state\=closed\]\:fade-out-0 {
+  animation: fadeOut 150ms ease-in;
+}
+
+.data-\[state\=open\]\:fade-in-0 {
+  animation: fadeIn 150ms ease-out;
+}
+
+.data-\[state\=closed\]\:zoom-out-95 {
+  animation: zoomOut 150ms ease-in;
+}
+
+.data-\[state\=open\]\:zoom-in-95 {
+  animation: zoomIn 150ms ease-out;
+}
+
+.data-\[state\=closed\]\:slide-out-to-left-1\/2 {
+  animation: slideOutToTop 150ms ease-in;
+}
+
+.data-\[state\=open\]\:slide-in-from-left-1\/2 {
+  animation: slideInFromTop 150ms ease-out;
+}
+
+.data-\[state\=closed\]\:slide-out-to-top-\[48\%\] {
+  animation: slideOutToTop 150ms ease-in;
+}
+
+.data-\[state\=open\]\:slide-in-from-top-\[48\%\] {
+  animation: slideInFromTop 150ms ease-out;
+}
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  /* .card {
+    @apply bg-card-dark text-card-foreground-dark;
+  }
+
+  .button-default {
+    @apply bg-primary-dark text-primary-foreground-dark hover:bg-primary-dark/90;
+  }
+
+  .button-secondary {
+    @apply bg-secondary-dark text-secondary-foreground-dark hover:bg-secondary-dark/80;
+  }
+
+  .input, .textarea {
+    @apply bg-input-dark border-input-dark;
+  }
+
+  .tabs-list {
+    @apply bg-muted-dark text-muted-foreground-dark;
+  }
+
+  .tabs-trigger[data-state="active"] {
+    @apply bg-background-dark text-foreground-dark;
+  } */
 }
