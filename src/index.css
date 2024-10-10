@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.red{
+    color: red;
+    font-size: x-small;
+    padding-left:12px;
+}
