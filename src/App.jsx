@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import StudentDashboard from "./pages/StudentDashboard";
-import DashboardHome from "./components/Student/DashBoardHome";
+import DashboardHome from "./components/Student/DashboardHome";
 import JobListing from "./components/Student/JobListing";
 import Events from "./components/Student/Events";
 import Profile from "./components/Student/Profile";

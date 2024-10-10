@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { loginUser, loginToast } from "../services/auth";
+import { loginUser, loginToast } from "./../../services/auth";
 
 export default function LoginForm() {
   const [response, SetResponse] = useState(null);
